@@ -3,33 +3,39 @@ const appContainer = document.getElementById('app-container');
 const homeBtn = document.getElementById('homeBtn');
 let isAudioUnlocked = false;
 
-function speak(text, rate = 0.85, pitch = 1.5) {
+function speak(text, rate = 0.85, pitch = 1.3) {
     if (!isAudioUnlocked) return;
     
     window.speechSynthesis.cancel(); // Cancel queued speech
     
     const utterance = new SpeechSynthesisUtterance(text);
-    
-    // Slow the reading down slightly and raise the pitch to mimic a child's voice
-    utterance.rate = 0.85; 
-    utterance.pitch = 1.5; 
+    utterance.rate = rate; 
+    utterance.pitch = pitch; 
     
     const voices = window.speechSynthesis.getVoices();
     
-    // 1. Try to find an Indian English voice first (en-IN)
-    let preferredVoice = voices.find(v => v.lang === 'en-IN' || v.lang === 'en_IN');
+    // 1. Smart Language Detection
+    // We check if the text contains common Hindi/Sanskrit words from your syllabus
+    const hindiKeywords = ['aalu', 'kachhalu', 'jana', 'gana', 'kaamyab', 'somwar', 'chidiya', 'mor', 'bhur', 'bhuvah', 'twameva', 'shakti', 'daata', 'gurur', 'chuha', 'shantee'];
     
-    // 2. If no Indian accent is found, try to find a child/friendly voice
-    if (!preferredVoice) {
-        preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.toLowerCase().includes('child') || v.name.toLowerCase().includes('kid')));
-    }
-    
-    // 3. Fallback to Google's standard English or any available English Female voice
-    if (!preferredVoice) {
-        preferredVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Google') || v.name.toLowerCase().includes('female')));
+    const isHindi = hindiKeywords.some(keyword => text.toLowerCase().includes(keyword));
+
+    let preferredVoice;
+
+    if (isHindi) {
+        // Find a Hindi voice for Mantras and Hindi Rhymes
+        preferredVoice = voices.find(v => v.lang.includes('hi-IN') && v.name.toLowerCase().includes('female')) ||
+                         voices.find(v => v.lang.includes('hi-IN'));
+        utterance.lang = preferredVoice ? preferredVoice.lang : 'hi-IN';
+    } else {
+        // Find an Indian-English voice for standard English Rhymes & ABCs
+        preferredVoice = voices.find(v => (v.lang === 'en-IN' || v.lang === 'en_IN') && v.name.toLowerCase().includes('female')) ||
+                         voices.find(v => (v.lang === 'en-IN' || v.lang === 'en_IN')) ||
+                         voices.find(v => v.lang.includes('en') && (v.name.toLowerCase().includes('child') || v.name.toLowerCase().includes('female')));
+        utterance.lang = preferredVoice ? preferredVoice.lang : 'en-IN';
     }
 
-    if(preferredVoice) {
+    if (preferredVoice) {
         utterance.voice = preferredVoice;
     }
 

@@ -1,0 +1,93 @@
+:root {
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    --accent: #FFE66D;
+    --bg: #F7FFF7;
+    --text: #2D3142;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    touch-action: manipulation; /* Prevent double-tap zoom on mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, .heading-font {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Bubbly Button Styles */
+.bubbly-button {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 0 rgba(0,0,0,0.15);
+}
+
+.bubbly-button:active {
+    transform: translateY(4px) scale(0.95);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+/* Flashcard Animations */
+.flashcard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 0 rgba(0,0,0,0.1);
+}
+
+.flashcard:active, .flashcard.pop {
+    transform: scale(0.9) translateY(4px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg) scale(1.05); }
+    50% { transform: rotate(5deg) scale(1.05); }
+    75% { transform: rotate(-5deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+.animate-wobble {
+    animation: wobble 0.5s ease-in-out;
+}
+
+/* Particle Confetti */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Hide scrollbar for clean UI */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+}
+
+/* Background Pattern */
+.bg-dots {
+    background-image: radial-gradient(circle, #cbd5e1 2px, transparent 2px);
+    background-size: 30px 30px;
+}

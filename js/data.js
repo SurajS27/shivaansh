@@ -4,14 +4,31 @@ const syllabusData = {
         { id: 'A', word: 'Ants', emoji: '🐜', color: 'bg-red-200', rhyme: "Ants on my arm, /a/ /a/ /a/\nAnts on my arm,\nThey’re causing me alarm." },
         { id: 'B', word: 'Bat', emoji: '🦇', color: 'bg-blue-200', rhyme: "Bring your bat and bring your ball,\n/b/ /b/ /b/\nBring your bat and bring your ball,\nTo the park to play!" },
         { id: 'C', word: 'Castanets', emoji: '🪇', color: 'bg-green-200', rhyme: "We are clicking castanets,\n/c/ /c/ /c/\nWe are clicking castanets,\n/c/ /c/ /c/\nWe are clicking castanets,\nClicking castanets,\n/c/ /c/ /c/" },
-        { id: 'D', word: 'Drum', emoji: '🥁', color: 'bg-yellow-200', rhyme: "See me play upon my drum,\nPlaying drums is lots of fun!\nWith a /d/ /d/ /d/ /d/ /d/ /d/ /d/\nSee me play upon my drum." }
-        // Add E-L here
+        { id: 'D', word: 'Drum', emoji: '🥁', color: 'bg-yellow-200', rhyme: "See me play upon my drum,\nPlaying drums is lots of fun!\nWith a /d/ /d/ /d/ /d/ /d/ /d/ /d/\nSee me play upon my drum." },
+        
+        // Added matching phonetic rhymes for E, F, G, H based on the syllabus words
+        { id: 'E', word: 'Egg', emoji: '🥚', color: 'bg-orange-200', rhyme: "E is for Egg, /e/ /e/ /e/\nE is for Egg,\nIn the nest you see!" },
+        { id: 'F', word: 'Flower', emoji: '🌸', color: 'bg-pink-200', rhyme: "F is for Flower, /f/ /f/ /f/\nF is for Flower,\nGrowing in the garden!" },
+        { id: 'G', word: 'Giraffe', emoji: '🦒', color: 'bg-purple-200', rhyme: "G is for Giraffe, /g/ /g/ /g/\nG is for Giraffe,\nEating leaves so tall!" },
+        { id: 'H', word: 'Hand', emoji: '🖐️', color: 'bg-teal-200', rhyme: "H is for Hand, /h/ /h/ /h/\nH is for Hand,\nWave hello to all!" },
+        
+        // Fixed syntax for I, J, K, L to match the rest of the alphabet
+        { id: 'I', word: 'Inky', emoji: '🐭', color: 'bg-cyan-200', rhyme: "Inky the mouse is my pet,\nShe spilled the ink and got wet.\nThe ink it ran down to her feet,\nAnd Inky got ink all over her seat." },
+        { id: 'J', word: 'Jelly', emoji: '🍮', color: 'bg-rose-200', rhyme: "Jolly, jolly, jelly,\nJelly on a plate.\nJelly, jelly, jelly,\nJelly tastes great!" },
+        { id: 'K', word: 'Kick', emoji: '⚽', color: 'bg-lime-200', rhyme: "Kicking and catching,\nKicking and catching,\nKick the ball,\nCatch the ball." },
+        { id: 'L', word: 'Lion', emoji: '🦁', color: 'bg-amber-200', rhyme: "Look at the lion,\nHe likes to lick.\nLook at the lion,\nHe likes to lick." }    
     ],
     numbers: [
-        { id: '1', word: 'One', emoji: '☝️', items: '🍎', rhyme: "Number 1, Number 1\nNumber 1 is straight and fun!" },
+        { id: '1', word: 'One', emoji: '☝️️', items: '🍎', rhyme: "Number 1, Number 1\nNumber 1 is straight and fun!" },
         { id: '2', word: 'Two', emoji: '✌️', items: '🍎🍎', rhyme: "Number 2, Number 2\nTwo kangaroos in the zoo!" },
-        { id: '3', word: 'Three', emoji: '🤟', items: '🍎🍎🍎', rhyme: "Number 3, Number 3\nThree apples on a tree!" }
-        // Add 4-10 here
+        { id: '3', word: 'Three', emoji: '🤟', items: '🍎🍎🍎', rhyme: "Number 3, Number 3\nThree apples on a tree!" },
+        { id: '4', word: 'Four', emoji: '🍀', items: '🍎🍎🍎🍎', rhyme: "Number 4, Number 4\nFour children on the floor!" },
+        { id: '5', word: 'Five', emoji: '🖐️', items: '🍎🍎🍎🍎🍎', rhyme: "Number 5, Number 5\nFive bees in the hive!" },
+        { id: '6', word: 'Six', emoji: '🎲', items: '🍎🍎🍎🍎🍎🍎', rhyme: "Number 6, Number 6\nSix people picking up sticks!" },
+        { id: '7', word: 'Seven', emoji: '🌈', items: '🍎🍎🍎🍎🍎🍎🍎', rhyme: "Number 7, Number 7\nSeven people peeping from the heavens!" },
+        { id: '8', word: 'Eight', emoji: '🎱', items: '🍎🍎🍎🍎🍎🍎🍎🍎', rhyme: "Number 8, Number 8\nEight people standing at the gate!" },
+        { id: '9', word: 'Nine', emoji: '🎈', items: '🍎🍎🍎🍎🍎🍎🍎🍎🍎', rhyme: "Number 9, Number 9\nNumber 9, I am fine!" },
+        { id: '10', word: 'Ten', emoji: '🙌', items: '🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎', rhyme: "Number 10, Number 10\nTen-there is a big fat hen!" }
     ],
     vegetables: [
         { word: 'Tomato', emoji: '🍅', color: 'bg-red-300', rhyme: " Which fruit is used to make ketchup?\n Tomato" },
@@ -91,8 +108,14 @@ const syllabusData = {
         { word: 'Mouth', emoji: '👄', color: 'bg-rose-200', rhyme: " What do we do with our mouth?\n Eat" }
     ],
     colorsShapes: [
-        { word: 'Red', emoji: '🔴', color: 'bg-red-500', textClass: 'text-white' },
-        { word: 'Triangle', emoji: '🔺', color: 'bg-blue-200' }
+        { word: 'Red', emoji: '🔴', color: 'bg-red-500', textClass: 'text-white', rhyme: "Red, red, lovely red,\nRed is the colour of an apple.\nRed is bright, red is fun,\nRed is the colour of the shining sun!" },
+        { word: 'Green', emoji: '🟢', color: 'bg-green-500', textClass: 'text-white', rhyme: "Green, green, what a sight,\nGreen leaves dancing in the light.\nGreen grass soft below my feet,\nGreen peas are fun to eat!\nGreen, green, everywhere,\nNature's beauty we all share!" },
+        { word: 'White', emoji: '⚪', color: 'bg-white', textClass: 'text-black', rhyme: "White is lovely,\nWhite is lovely,\nLook around,\nLook around.\nClouds and milk are white,\nStars shine big and bright,\nWhat a sight,\nWhat a delight!" },
+        { word: 'Triangle', emoji: '🔺', color: 'bg-blue-200', rhyme: "Make a triangle, make a triangle,\nWith your hands, with your hands.\nThree straight sides, three straight sides,\nThree corners, three corners." },
+        { word: 'Rectangle', emoji: '🟦', color: 'bg-yellow-200', rhyme: "Rectangle, rectangle,\nLong and wide,\nFour little corners\nSide by side!" },
+        { word: 'Circle', emoji: '⭕', color: 'bg-purple-200', rhyme: "Make a circle,\nBig, big, big!\nSmall, small, small!\nBig, big, big!\nMake a circle,\nUp, up, up!\nDown, down, down!\nUp, up, up!\nMake a circle,\nUp, up, up!\nNow stand up!" },
+        { word: 'Big & Small', emoji: '🐘', color: 'bg-teal-200', rhyme: "Big, big, big, big,\nBig, big, big the ball.\nSmall, small, small, small,\nSmall, small, small the ball.\nBig and small,\nWe know them all!" },
+        { word: 'Open & Close', emoji: '🚪', color: 'bg-amber-200', rhyme: "Open, open, open wide,\nClose, close, close it tight.\nOpen and close,\nMorning to night!" }
     ],
     magicWords: [
         { word: 'Please', emoji: '🙏', desc: 'When we ask for something \nExample: “Please give me a toy.”', color: 'bg-pink-200' },
